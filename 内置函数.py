@@ -56,6 +56,45 @@ print('-----callable---')
 
 # chr() 用一个整数作参数，返回一个对应的字符。
 b = 71
-
 print(chr(b))
 print('-----chr---')
+
+# dir() 函数不带参数时，返回当前范围内的变量、方法和定义的类型列表；带参数时，返回参数的属性、方法列表。如果参数包含方法__dir__()，该方法将被调用。如果参数不包含__dir__()，该方法将最大限度地收集参数信息。
+s = 'Alex'
+print(dir(s))
+print('-----dir---')
+
+# eval() 函数用来执行一个字符串表达式，并返回表达式的值。
+# eval(expression[, globals[, locals]])
+# expression -- 表达式。
+# globals -- 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。
+# locals -- 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。
+
+x = 7
+print(eval('3*x'))
+h = '[9,3,2,3,2,1,3]'
+print(eval(h))
+print(eval(h)[0])
+print('-----eval---')
+
+# exec 执行储存在字符串或文件中的 Python 语句，相比于 eval，exec可以执行更复杂的 Python 代码。
+# exec(object[, globals[, locals]])
+# object：必选参数，表示需要被指定的 Python 代码。它必须是字符串或 code 对象。如果 object 是一个字符串，该字符串会先被解析为一组 Python 语句，然后再执行（除非发生语法错误）。如果 object 是一个 code 对象，那么它只是被简单的执行。
+# globals：可选参数，表示全局命名空间（存放全局变量），如果被提供，则必须是一个字典对象。
+# locals：可选参数，表示当前局部命名空间（存放局部变量），如果被提供，可以是任何映射对象。如果该参数被忽略，那么它将会取与 globals 相同的值。
+z = 10
+expr = """
+c = 30
+sum = z + b + c
+print(sum)
+"""
+
+
+def fuv():
+    b = 20
+    exec(expr)
+    exec(expr, {'z': 5, 'b': 2})
+    exec(expr, {'z': 1, 'b': 2}, {'z': 3, 'c': 4})
+
+
+fuv()
