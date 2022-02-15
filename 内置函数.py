@@ -98,3 +98,71 @@ def fuv():
 
 
 fuv()
+print('-----exec---')
+
+
+# filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回一个迭代器对象，如果要转换为列表，可以使用 list() 来转换。
+
+# 该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判断，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。
+# filter(function, iterable)
+# 参数
+# function -- 判断函数。
+# iterable -- 可迭代对象
+def is_okl(n):
+    return n % 2 == 1
+
+
+tmplist = filter(is_okl, [2, 3, 4, 5, 6, 7, 8, 9, 10])
+print(tmplist)
+newlist = list(tmplist)
+print(newlist)
+
+s = [2, 2, 8, 9, 5, 7, 5, 6, 9, 10]
+
+newLIN = filter(lambda a: a > 5, s)
+jum = list(newLIN)
+print(jum)
+
+print('-----filter---')
+
+# frozenset() 返回一个冻结的集合，冻结后集合不能再添加或删除任何元素。
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+f = frozenset(range(10))
+b = frozenset(a)
+c = frozenset(f)
+print(b)
+print(f, '11111111111')
+print('-----frozenset---')
+
+# globals() 函数会以字典类型返回当前位置的全部全局变量。
+
+print(globals())
+print('-----globals---')
+
+# isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。
+# isinstance() 与 type() 区别：
+# type() 不会认为子类是一种父类类型，不考虑继承关系。
+# isinstance() 会认为子类是一种父类类型，考虑继承关系。
+# 如果要判断两个类型是否相同推荐使用 isinstance()。
+# 语法
+# 以下是 isinstance() 方法的语法:
+# isinstance(object, classinfo)
+# 参数
+# object -- 实例对象。
+# classinfo -- 可以是直接或间接类名、基本类型或者由它们组成的元组。
+
+a = 2
+print(isinstance(a, int))
+print('-----isinstance---')
+
+# reversed 函数返回一个反转的迭代器。  必须加上list
+a = 'abcd'
+print(list(reversed(a)))
+print('-----reversed---')
+
+# sorted 排序
+a = [['a', 1], ['b', 2], ['c', 3], ['d', 5], ['r', 4]]
+
+sums = sorted(a, key=lambda i: i[1])
+print(id(a))
+print(id(sums))
